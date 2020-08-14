@@ -1,13 +1,6 @@
-import { Email, DB, AWS } from "./../interfaces"
+import { DB } from "./../interfaces"
 
 let variables: Object = {}
-
-const email: Email  =  {
-  apikey: ``,
-  brand:  ``,
-  domain: ``,
-  defaultEmail: ``
-}
 
 const db: DB =  {
     username: ``,
@@ -21,15 +14,7 @@ const db: DB =  {
     }
 }
 
-const aws: AWS =  {
-  accessKeyId: `AKIAJFXH7GQH53H35H5Q`,
-  secretAccessKey: "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",
-  Bucket: "ns-claims-uploads",
-  region: "us-west-1",
-  s3BaseUrl: "https://ns-claims-uploads.s3-us-west-1.amazonaws.com/"
-}
-
 const secretkey = "secretkey"
 
 
-export { secretkey, email, db, aws }
+export { secretkey, db }

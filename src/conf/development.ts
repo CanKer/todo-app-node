@@ -1,11 +1,5 @@
-import { Email, AWS } from "./../interfaces"
+import { DB } from "./../interfaces"
 
-const email: Email  =  {
-  apikey: ``,
-  brand:  ``,
-  domain: ``,
-  defaultEmail: ``
-}
 
 const db: any =  {
     username: process.env.USERNAME,
@@ -19,15 +13,8 @@ const db: any =  {
     }
 }
 
-const aws: AWS =  {
-  accessKeyId: ``,
-  secretAccessKey: "",
-  Bucket: "",
-  region: "",
-  s3BaseUrl: ""
-}
 
 const secretkey = "secretkey"
 
 
-export { secretkey, email, db, aws }
+export { secretkey, db }
