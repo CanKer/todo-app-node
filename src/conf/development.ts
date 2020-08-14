@@ -1,6 +1,5 @@
-import { DB } from "./../interfaces"
-
-
+import dotenv from "dotenv"
+dotenv.config();
 const db: any =  {
     username: process.env.USERNAME,
     password: process.env.PASSWORD,

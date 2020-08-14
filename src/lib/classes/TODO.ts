@@ -24,7 +24,6 @@ export default class TODO {
   }
 
   updateTODO(id: string) {
-    console.log("done: ", !this.done)
     return TODOModel.findByIdAndUpdate(id,{done: !this.done})
       .then((data: any) => data)
       .catch((err: any) => err)

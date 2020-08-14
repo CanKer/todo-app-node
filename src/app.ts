@@ -4,7 +4,7 @@ import bodyParser from "body-parser"
 import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
-
+dotenv.config({path: `./../.env`});
 import { Server as Main } from './interfaces/'
 import { Routes } from "./lib/"
 import { Connect, variables  } from "./conf/"
@@ -28,7 +28,7 @@ class Server {
     app.use(cors())
       .use(bodyParser.json())
       .use(bodyParser.urlencoded({extended:true}))
-    dotenv.config();
+
   }
 
   includeRoutes() {
@@ -40,7 +40,6 @@ initDB() {
   }
 
   appExecute()  {
-    console.log("app: ", process.env.NODE_ENV)
     this.appConfig()
     this.includeRoutes()
     this.initDB()
