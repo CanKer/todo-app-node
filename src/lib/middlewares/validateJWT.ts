@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express"
+import { Request, Response, NextFunction } from "express";
 import { sign, verify } from 'jsonwebtoken';
 
 const verifyToken = (req:Request,res:Response, next:NextFunction) =>  {

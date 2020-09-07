@@ -1,6 +1,6 @@
-import { User as UserModel } from './../../models'
-import { Types, Document } from 'mongoose'
-import { sign, verify } from 'jsonwebtoken';
+import { User as UserModel } from './../../models';
+import { Types } from 'mongoose';
+import { sign } from 'jsonwebtoken';
 
 export default class User {
   email: string
