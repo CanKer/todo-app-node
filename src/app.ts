@@ -1,6 +1,6 @@
 "use strict"
 
-import bodyParser from "body-parser"
+//import bodyParser from "body-parser"
 import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
@@ -26,8 +26,8 @@ class Server {
   appConfig() {
     const { app } = this.main
     app.use(cors())
-      .use(bodyParser.json())
-      .use(bodyParser.urlencoded({extended:true}))
+      .use(express.json())
+      .use(express.urlencoded({extended:true}))
 
   }
 

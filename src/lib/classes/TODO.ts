@@ -1,9 +1,8 @@
-import { Schema } from 'mongoose'
 import {TODO as TODOModel} from './../../models/'
 
 export default class TODO {
-  description:String
-  done: Boolean
+  description:string
+  done: boolean
   constructor(description: string = "", done: boolean = false) {
     this.description = description
     this.done = done
@@ -30,7 +29,7 @@ export default class TODO {
   }
 
   deleteTODO(id: string)  {
-    console.log("deleteTODO")
+    console.log("deleteTODO: ", id)
     return TODOModel.findOneAndRemove({_id: id})
       .then((data: any) =>  data)
       .catch((err: any) => err)

@@ -5,7 +5,11 @@ export default class Connect  {
 
    async connection ()  {
      console.log("url: ", this.url)
-     return await mongoose.connect(`${this.url}`, {useNewUrlParser: true})
+     return await mongoose.connect(`${this.url}`, {
+       useNewUrlParser: true,
+       useUnifiedTopology:true,
+       autoIndex: false
+     })
       .then(() =>  {
         mongoose.Promise = Promise;
         mongoose.set('useCreateIndex', true);
