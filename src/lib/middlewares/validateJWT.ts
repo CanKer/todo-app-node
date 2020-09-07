@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express"
-import jwt from "jsonwebtoken"
+import { sign, verify } from 'jsonwebtoken';
 
 const verifyToken = (req:Request,res:Response, next:NextFunction) =>  {
   try{
@@ -8,12 +8,12 @@ const verifyToken = (req:Request,res:Response, next:NextFunction) =>  {
     let token = req.headers.authorization.split(' ')[1]
     if(token === 'null')
       return res.status(401).send("unauthorized")
-    const payload:any = jwt.verify(token, 'arkusnexus')
+    const payload:any = verify(token, 'arkusnexus')
     if(!payload) return res.status(401).send("unauthorized")
     else {
       console.log("payload: ", payload)
       req.body.userId = payload._id
-      req.body.token  = jwt.sign({_id: payload._id}, 'arkusnexus',{ expiresIn: 60 * 5 })
+      req.body.token  = sign({_id: payload._id}, 'arkusnexus',{ expiresIn: 60 * 5 })
       next()
     }
 

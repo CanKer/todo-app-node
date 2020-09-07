@@ -1,6 +1,6 @@
 import { User as UserModel } from './../../models'
 import { Types, Document } from 'mongoose'
-import jwt from "jsonwebtoken"
+import { sign, verify } from 'jsonwebtoken';
 
 export default class User {
   email: string
@@ -18,7 +18,7 @@ export default class User {
     if(!_id) {
       return {code: 401, message: "Usuario no existe"}
     } else {
-      const token = jwt.sign({_id}, 'arkusnexus',{ expiresIn: 60 * 5 })
+      const token = sign({_id}, 'arkusnexus',{ expiresIn: 60 * 5 })
       return {code: 200, data: token}
     }
   }
@@ -28,7 +28,7 @@ export default class User {
     const user = new UserModel({email:this.email, password:this.password})
     try {
       await user.save()
-      const token = jwt.sign({_id: user._id}, 'arkusnexus',{ expiresIn: 60 * 5 })
+      const token = sign({_id: user._id}, 'arkusnexus',{ expiresIn: 60 * 5 })
       return {code: 201, data: token}
     } catch({message}) {
       return {code: 401, message}
@@ -42,7 +42,7 @@ export default class User {
       if(user)  {
         const {email, password, _id} = user.toJSON()
         if(email && (password === this.password)) {
-          const token = jwt.sign({_id}, 'arkusnexus',{ expiresIn: 60 * 5 })
+          const token = sign({_id}, 'arkusnexus',{ expiresIn: 60 * 5 })
           return {code: 200, data:token}
         } else {console.log("sácate")
         return {code: 401, message: "Error de auntenticación"}}
