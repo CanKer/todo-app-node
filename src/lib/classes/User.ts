@@ -1,6 +1,6 @@
 import { User as UserModel } from './../../models'
 import { Types, Document } from 'mongoose'
-import jwt from "jsonwebtoken"
+import * as jwt from "jsonwebtoken"
 
 export default class User {
   email: string
