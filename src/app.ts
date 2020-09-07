@@ -25,7 +25,10 @@ class Server {
 
   appConfig() {
     const { app } = this.main
-    app.use(cors())
+    app.use(cors({
+      "origin": "*",
+      "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    }))
       .use(express.json())
       .use(express.urlencoded({extended:true}))
 
